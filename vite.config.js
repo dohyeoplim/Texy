@@ -6,6 +6,7 @@ import tailwindcss from "@tailwindcss/vite";
 // https://vite.dev/config/
 export default defineConfig({
     plugins: [react(), tailwindcss()],
+    base: "/texy/",
     resolve: {
         alias: {
             "@": resolve(__dirname, "./src"),
@@ -14,14 +15,28 @@ export default defineConfig({
     worker: {
         format: "es",
     },
-    optimizeDeps: {
-        exclude: ["comlink"],
-    },
     build: {
-        target: "esnext",
+        target: "es2015",
         outDir: "dist",
         assetsDir: "assets",
-        sourcemap: true,
+        minify: "terser",
+        terserOptions: {
+            compress: {
+                drop_console: true,
+                drop_debugger: true,
+            },
+        },
+        sourcemap: false,
+        rollupOptions: {
+            output: {
+                manualChunks: {
+                    vendor: ["react", "react-dom"],
+                },
+                chunkFileNames: "assets/js/[name]-[hash].js",
+                entryFileNames: "assets/js/[name]-[hash].js",
+                assetFileNames: "assets/[ext]/[name]-[hash].[ext]",
+            },
+        },
     },
     server: {
         port: 5000,
