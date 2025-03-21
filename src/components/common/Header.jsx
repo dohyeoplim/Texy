@@ -1,6 +1,6 @@
 const Header = ({ title = "Texy" }) => {
     return (
-        <header className="pt-24 pb-12">
+        <header className="pt-24 pb-8">
             <div>
                 <span className="text-sm sm:text-base">
                     A LaTeX table generator
