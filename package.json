@@ -1,6 +1,7 @@
 {
     "name": "texy",
     "private": true,
+    "homepage": "https://dohyeoplim.github.io/Texy/",
     "version": "0.0.0",
     "type": "module",
     "scripts": {

@@ -21,8 +21,6 @@ export default defineConfig({
         assetsDir: "assets",
     },
     server: {
-        port: 5000,
-        open: true,
-        cors: true,
+        port: 8080,
     },
 });
