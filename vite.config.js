@@ -19,24 +19,6 @@ export default defineConfig({
         target: "es2015",
         outDir: "dist",
         assetsDir: "assets",
-        minify: "terser",
-        terserOptions: {
-            compress: {
-                drop_console: true,
-                drop_debugger: true,
-            },
-        },
-        sourcemap: false,
-        rollupOptions: {
-            output: {
-                manualChunks: {
-                    vendor: ["react", "react-dom"],
-                },
-                chunkFileNames: "assets/js/[name]-[hash].js",
-                entryFileNames: "assets/js/[name]-[hash].js",
-                assetFileNames: "assets/[ext]/[name]-[hash].[ext]",
-            },
-        },
     },
     server: {
         port: 5000,
